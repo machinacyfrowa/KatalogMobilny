@@ -6,4 +6,9 @@ public partial class NewProductPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void NowyProdukt_Clicked(object sender, EventArgs e)
+    {
+		EtykietaWyniku.Text = "Dodano nowy produkt";
+    }
 }
