@@ -2,13 +2,15 @@ namespace KatalogMobilny;
 
 public partial class NewProductPage : ContentPage
 {
-	public NewProductPage()
+	private int licznik = 0;
+    public NewProductPage()
 	{
 		InitializeComponent();
 	}
 
     private void NowyProdukt_Clicked(object sender, EventArgs e)
     {
-		EtykietaWyniku.Text = "Dodano nowy produkt";
+		licznik++;
+		EtykietaWyniku.Text = $"Kliknięto {licznik} razy";
     }
 }
