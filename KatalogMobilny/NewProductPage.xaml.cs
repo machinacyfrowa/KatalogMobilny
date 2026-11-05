@@ -10,8 +10,37 @@ public partial class NewProductPage : ContentPage
 
     private void NowyProdukt_Clicked(object sender, EventArgs e)
     {
-		licznik++;
-		EtykietaWyniku.Text = $"Kliknięto {licznik} razy";
+		//licznik++;
+		//EtykietaWyniku.Text = $"Kliknięto {licznik} razy";
+        //czytamy: jeżeli tryparse nie uda się odczytać ceny
+        if(!double.TryParse(CenaEntry.Text, out double cena))
+        {
+            EtykietaWyniku.Text = "Niepoprawna cena!"; //wyświetlamy komunikat o błędzie
+            return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
+        }
+        if (!int.TryParse(IloscEntry.Text, out int ilosc))
+        {
+            EtykietaWyniku.Text = "Niepoprawna ilość!"; //wyświetlamy komunikat o błędzie
+            return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
+        }
+        //jeśli doszlimy tutaj to znaczy, że poprawnie odczytaliśmy cenę i ilość
+        double wartosc = cena * ilosc;
+        //teraz sprawdzamy nazwę produktu - nie może być pusta ani składać się tylko z białych znaków
+        string? nazwa = NazwaEntry.Text;
+        if(string.IsNullOrWhiteSpace(nazwa))
+        {
+            EtykietaWyniku.Text = "Niepoprawna nazwa!"; //wyświetlamy komunikat o błędzie
+            return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
+        }
+        //na koniec sprawdzamy czy wybrano kategorię
+        if (KategoriaPicker.SelectedItem == null)
+        {
+            EtykietaWyniku.Text = "Nie wybrano kategorii!"; //wyświetlamy komunikat o błędzie
+            return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
+        }
+        //wszystko sprawdzone - wyswietlamy wynik
+        EtykietaWyniku.Text = $"Produkt: {nazwa}, cena: {cena}, ilość: {ilosc}, " +
+            $"kategoria: {KategoriaPicker.SelectedItem}, wartość: {wartosc}";
     }
 
     private void NazwaEntry_TextChanged(object sender, TextChangedEventArgs e)

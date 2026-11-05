@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,8 +28,10 @@
         <Entry Grid.Row="1" Grid.Column="1" x:Name="NazwaEntry" Placeholder="Wpisz nazwę produktu" TextChanged="NazwaEntry_TextChanged" />
         <Label Grid.Row="2" Grid.Column="0" Text="Cena" />
         <Entry Grid.Row="2" Grid.Column="1" x:Name="CenaEntry" Placeholder="0" Keyboard="Numeric" />
-        <Label Grid.Row="3" Grid.Column="0" Text="Kategoria"/>
-        <Picker Grid.Row="3" Grid.Column="1" x:Name="KategoriaPicker" SelectedIndexChanged="KategoriaPicker_SelectedIndexChanged">
+        <Label Grid.Row="3" Grid.Column="0" Text="Ilość"/>
+        <Entry Grid.Row="3" Grid.Column="1" x:Name="IloscEntry" Placeholder="0" Keyboard="Numeric" />
+        <Label Grid.Row="4" Grid.Column="0" Text="Kategoria"/>
+        <Picker Grid.Row="4" Grid.Column="1" x:Name="KategoriaPicker" SelectedIndexChanged="KategoriaPicker_SelectedIndexChanged">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Procesory</x:String>
@@ -43,10 +46,10 @@
             <Switch Grid.Row="5" Grid.Column="0" x:Name="AvailableSwitch" HorizontalOptions="Start" Toggled="AvailableSwitch_Toggled"/>
             <Label Grid.Row="5" Grid.Column="1" Text="Produkt dostępny" VerticalOptions="Center" x:Name="AvailableLabel"/>
 
-        <Button Grid.Row="7" Grid.Column="0" Text="Dodaj produkt" Clicked="NowyProdukt_Clicked"/>
-        <Button Grid.Row="7" Grid.Column="1" Text="Reset" Clicked="Reset_Clicked"/>
+        <Button Grid.Row="8" Grid.Column="0" Text="Dodaj produkt" Clicked="NowyProdukt_Clicked"/>
+        <Button Grid.Row="8" Grid.Column="1" Text="Reset" Clicked="Reset_Clicked"/>
         
-        <Label Grid.Row="8" Grid.ColumnSpan="2" x:Name="EtykietaWyniku" Text=""/>
+        <Label Grid.Row="9" Grid.ColumnSpan="2" x:Name="EtykietaWyniku" Text=""/>
 
     </Grid>
 </ContentPage>
