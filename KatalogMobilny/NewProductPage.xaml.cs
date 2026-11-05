@@ -23,6 +23,11 @@ public partial class NewProductPage : ContentPage
             EtykietaWyniku.Text = "Niepoprawna ilość!"; //wyświetlamy komunikat o błędzie
             return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
         }
+        if(cena < 0 || ilosc < 0)
+        {
+            EtykietaWyniku.Text = "Cena i ilość nie mogą być ujemne!"; //wyświetlamy komunikat o błędzie
+            return; //wychodzimy z metody, nie wykonujemy dalszych instrukcji
+        }
         //jeśli doszlimy tutaj to znaczy, że poprawnie odczytaliśmy cenę i ilość
         double wartosc = cena * ilosc;
         //teraz sprawdzamy nazwę produktu - nie może być pusta ani składać się tylko z białych znaków
