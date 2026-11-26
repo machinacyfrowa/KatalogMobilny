@@ -15,4 +15,14 @@ public partial class ProductListPage : ContentPage
         ProductCollectionView.ItemsSource = produkty;
         ProductCountLabel.Text = $"Produktów: {produkty.Count}";
     }
+
+    private async void ProductSelected(object sender, SelectionChangedEventArgs e)
+    {
+        if(e.CurrentSelection.FirstOrDefault() is Produkt selectedProduct)
+        {
+            await DisplayAlertAsync("Wybrano", 
+                                    $"Wybrano produkt: {selectedProduct.Nazwa}", 
+                                    "OK");
+        }
+    }
 }

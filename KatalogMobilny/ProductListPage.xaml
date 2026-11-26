@@ -11,7 +11,8 @@
         </Grid.RowDefinitions>
         <!-- kolumn nie definiujemy bo bedzie tylko jedna -->
         <CollectionView Grid.Row="1" x:Name="ProductCollectionView" 
-                        SelectionMode="Single">
+                        SelectionMode="Single"
+                        SelectionChanged="ProductSelected">
             <!-- jeśli lista jest pusta: -->
             <CollectionView.EmptyView>
                 <Label Text="Brak produktów do wyświetlenia" 
